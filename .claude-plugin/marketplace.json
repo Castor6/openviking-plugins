@@ -1,0 +1,18 @@
+{
+  "name": "openviking-plugin",
+  "owner": {
+    "name": "canlantiancai",
+    "email": "canlantiancai@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-memory-plugin",
+      "source": "./plugins/claude-code-memory-plugin",
+      "description": "Persistent memory for Claude Code powered by OpenViking sessions",
+      "version": "0.1.0",
+      "author": {
+        "name": "canlantiancai"
+      }
+    }  
+  ]
+}
