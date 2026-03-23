@@ -180,7 +180,7 @@ openviking-server
 ### 4. Install Plugin
 
 ```bash
-/plugin marketplace add Castor6/openviking-plugin
+/plugin marketplace add Castor6/openviking-plugins
 /plugin install claude-code-memory-plugin@openviking-plugin
 ```
 
