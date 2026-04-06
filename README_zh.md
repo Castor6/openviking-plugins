@@ -57,7 +57,7 @@ pip install openviking
 brew install pipx && pipx install openviking
 ```
 
-创建配置文件 `~/.openviking/ov.conf`：
+创建配置文件 `~/.openviking/ov.conf`（可通过环境变量 `OPENVIKING_CONFIG_FILE` 覆盖默认路径）：
 
 ```json
 {
@@ -85,6 +85,8 @@ brew install pipx && pipx install openviking
   }
 }
 ```
+
+Windows 的 workspace 路径请使用 `/`，不要使用 `\`，例如 `D:/.openviking/data`。
 
 启动服务器：
 

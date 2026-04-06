@@ -58,7 +58,7 @@ pip install openviking
 brew install pipx && pipx install openviking
 ```
 
-Create the config file `~/.openviking/ov.conf`:
+Create the config file `~/.openviking/ov.conf` (Can override the default path via the environment variable `OPENVIKING_CONFIG_FILE`):
 
 ```json
 {
@@ -86,6 +86,8 @@ Create the config file `~/.openviking/ov.conf`:
   }
 }
 ```
+
+For Windows workspace paths, use `/` instead of `\`, for example `D:/.openviking/data`.
 
 Start the server:
 
