@@ -9,7 +9,7 @@
       "name": "claude-code-memory-plugin",
       "source": "./plugins/claude-code-memory-plugin",
       "description": "Persistent memory for Claude Code powered by OpenViking sessions",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "author": {
         "name": "canlantiancai"
       }
