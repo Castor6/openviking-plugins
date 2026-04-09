@@ -60,6 +60,8 @@ const config = {
     baseUrl: `http://${host}:${port}`,
     apiKey: str(serverCfg.root_api_key, ""),
     agentId: str(cc.agentId, "claude-code"),
+    account: str(cc.account, "default"),
+    user: str(cc.user, "default"),
     timeoutMs: Math.max(1000, Math.floor(num(cc.timeoutMs, 15000))),
     recallLimit: Math.max(1, Math.floor(num(cc.recallLimit, 6))),
     scoreThreshold: Math.min(1, Math.max(0, num(cc.scoreThreshold, 0.01))),
@@ -83,13 +85,17 @@ class OpenVikingClient {
     baseUrl;
     apiKey;
     agentId;
+    account;
+    user;
     timeoutMs;
     resolvedSpaceByScope = {};
     runtimeIdentity = null;
-    constructor(baseUrl, apiKey, agentId, timeoutMs) {
+    constructor(baseUrl, apiKey, agentId, account, user, timeoutMs) {
         this.baseUrl = baseUrl;
         this.apiKey = apiKey;
         this.agentId = agentId;
+        this.account = account;
+        this.user = user;
         this.timeoutMs = timeoutMs;
     }
     async request(path, init = {}) {
@@ -101,6 +107,10 @@ class OpenVikingClient {
                 headers.set("X-API-Key", this.apiKey);
             if (this.agentId)
                 headers.set("X-OpenViking-Agent", this.agentId);
+            if (this.account)
+                headers.set("X-OpenViking-Account", this.account);
+            if (this.user)
+                headers.set("X-OpenViking-User", this.user);
             if (init.body && !headers.has("Content-Type"))
                 headers.set("Content-Type", "application/json");
             const response = await fetch(`${this.baseUrl}${path}`, {
@@ -369,7 +379,7 @@ async function searchBothScopes(client, query, limit) {
 // ---------------------------------------------------------------------------
 // MCP Server
 // ---------------------------------------------------------------------------
-const client = new OpenVikingClient(config.baseUrl, config.apiKey, config.agentId, config.timeoutMs);
+const client = new OpenVikingClient(config.baseUrl, config.apiKey, config.agentId, config.account, config.user, config.timeoutMs);
 const server = new McpServer({
     name: "openviking-memory",
     version: "0.1.0",
