@@ -326,6 +326,7 @@ async function main() {
 
   // ── Stage 1: Config summary ──
   header("Config Summary");
+  console.log(`  mode:             ${cfg.mode}`);
   console.log(`  baseUrl:          ${cfg.baseUrl}`);
   console.log(`  captureMode:      ${cfg.captureMode}`);
   console.log(`  captureMaxLength: ${cfg.captureMaxLength}`);
@@ -334,6 +335,13 @@ async function main() {
   console.log(`  debug:            ${cfg.debug}`);
   console.log(`  agentId:          ${cfg.agentId}`);
   console.log(`  timeoutMs:        ${cfg.timeoutMs}`);
+  console.log(`  clientConfig:     ${cfg.configPath}`);
+  if (cfg.mode === "local") {
+    console.log(`  serverConfig:     ${cfg.serverConfigPath}`);
+    if (cfg.serverConfigError) {
+      warn(`  local ov.conf fallback unavailable: ${cfg.serverConfigError}`);
+    }
+  }
 
   let allTurns;
   let sessionId;
