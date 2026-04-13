@@ -188,6 +188,8 @@ vim ~/.openviking/claude-code-memory-plugin/config.json
   "baseUrl": "https://your-openviking.example.com",
   "apiKey": "<your-api-key>",
   "agentId": "claude-code",
+  "account": "default",
+  "user": "default",
   "recallLimit": 6,
   "captureMode": "semantic",
   "captureTimeoutMs": 30000,
@@ -256,6 +258,8 @@ Local 模式下的连接行为：
 | `mode` | 固定写 `remote`，表示插件连接已有远端 OpenViking 服务 |
 | `baseUrl` | 必填，远端 OpenViking HTTP 地址 |
 | `apiKey` | 可选 OpenViking API Key；远端服务开启认证时必填 |
+| `account` | OpenViking 租户账户；用于租户作用域 API |
+| `user` | OpenViking 租户用户；用于租户作用域 API |
 
 ### 共享行为参数
 
