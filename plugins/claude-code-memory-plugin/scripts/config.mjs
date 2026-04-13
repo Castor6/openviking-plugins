@@ -153,6 +153,8 @@ export function loadConfig() {
     baseUrl,
     apiKey: configuredApiKey || (mode === "local" ? localApiKey : ""),
     agentId: str(file.agentId, "claude-code"),
+    account: str(file.account, ""),
+    user: str(file.user, ""),
     timeoutMs,
 
     // Recall

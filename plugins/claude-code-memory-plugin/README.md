@@ -191,6 +191,8 @@ the plugin falls back to `server.root_api_key` from local `ov.conf` when present
   "baseUrl": "https://your-openviking.example.com",
   "apiKey": "<your-api-key>",
   "agentId": "claude-code",
+  "account": "default",
+  "user": "default",
   "recallLimit": 6,
   "captureMode": "semantic",
   "captureTimeoutMs": 30000,
@@ -261,6 +263,8 @@ Local-mode connection behavior:
 | `mode` | Fixed to `remote`, meaning the plugin connects to an existing remote OpenViking server |
 | `baseUrl` | Required. Remote OpenViking HTTP endpoint |
 | `apiKey` | Optional OpenViking API key; required when the remote server enables authentication |
+| `account` | OpenViking tenant account; required for tenant-scoped APIs |
+| `user` | OpenViking tenant user; required for tenant-scoped APIs |
 
 ### Shared Behavior Fields
 
